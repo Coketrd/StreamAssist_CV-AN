@@ -1,3 +1,8 @@
+The Conversation-Mode and the possibility for Actionable Notifications is working on my System, the Changes are until now not in this fork.
+right now it is the original fork.
+
+
+
 # Stream Assist
 
 [Home Assistant](https://www.home-assistant.io/) custom component that allows you to turn almost [any camera](https://www.home-assistant.io/integrations/#camera) and almost [any speaker](https://www.home-assistant.io/integrations/#media-player) into a local [voice assistant](https://www.home-assistant.io/integrations/#voice).
