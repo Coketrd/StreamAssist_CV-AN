@@ -1,0 +1,27 @@
+alias: StreamAssistWohnzimmer
+sequence:
+  - parallel:
+      - action: stream_assist_cv-an.run
+        data:
+          player_entity_id: media_player.s23_t_eea
+          pipeline_id: 01hmc4d7bm8kvcklbxyarnaq6
+          stream_source: http://Youre-IP-Adress:8080/audio.wav
+          assist:
+            start_stage: stt
+            end_stage: tts
+            pipeline:
+              conversation_language: de
+              conversation_engine: homeassistant
+              language: de
+              name: Home Assistant
+              stt_engine: stt.home_assistant_cloud
+              stt_language: de
+              tts_engine: tts.home_assistant_cloud
+              tts_language: de
+              tts_voice: ChristophNeural
+          stt_start_media: media-source://media_source/local/beep.mp3
+        enabled: true
+    enabled: true
+description: ""
+icon: mdi:tablet
+mode: restart
