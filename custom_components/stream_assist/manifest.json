@@ -3,7 +3,7 @@
   "name": "Stream Assist_CV-AN",
   "codeowners": [
     "@AlexxIT"
-    "Forked@Coketrd"
+    "@Coketrd"
   ],
   "config_flow": true,
   "dependencies": [
