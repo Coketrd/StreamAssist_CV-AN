@@ -1,0 +1,8 @@
+alias: STT Streamassist Answer
+sequence:
+  - action: input_text.set_value
+    target:
+      entity_id: input_text.stt_streamassist_answer
+    data:
+      value: "{{ states('input_text.stt_streamassist') }}"
+description: ""
