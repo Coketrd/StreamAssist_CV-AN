@@ -35,7 +35,7 @@ sequence:
       milliseconds: 0
     enabled: false
   - parallel:
-      - action: stream_assist.run
+      - action: stream_assist_cv-an.run
         data:
           player_entity_id: media_player.s23_t_eea
           pipeline_id: 01hmc4ddaFAFa6gmarnaq6
