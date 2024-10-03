@@ -31,7 +31,7 @@ async def async_setup_entry(
     async_add_entities(entities)
 
 
-class StreamAssistSensor(SensorEntity):
+class StreamAssistCVANSensor(SensorEntity):
     _attr_native_value = STATE_IDLE
 
     def __init__(self, config_entry: ConfigEntry, key: str):
