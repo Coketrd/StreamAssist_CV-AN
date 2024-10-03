@@ -1,17 +1,18 @@
 {
-  "domain": "stream_assist",
-  "name": "Stream Assist",
+  "domain": "stream_assist_cv-an",
+  "name": "Stream Assist_CV-AN",
   "codeowners": [
     "@AlexxIT"
+    "Forked@Coketrd"
   ],
   "config_flow": true,
   "dependencies": [
     "stream",
     "assist_pipeline"
   ],
-  "documentation": "https://github.com/AlexxIT/StreamAssist",
+  "documentation": "https://github.com/Coketrd/StreamAssist_CV-AN",
   "iot_class": "calculated",
-  "issue_tracker": "https://github.com/AlexxIT/StreamAssist/issues",
+  "issue_tracker": "https://github.com/Coketrd/StreamAssist_CV-AN/issues",
   "requirements": [],
   "version": "v2.1.0"
 }
