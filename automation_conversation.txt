@@ -1,0 +1,36 @@
+alias: conversation livingroom
+description: ""
+trigger:
+  - platform: state
+    entity_id:
+      - input_text.url_stream_assist
+    for:
+      hours: 0
+      minutes: 0
+      seconds: 0
+    to: null
+condition:
+  - condition: state
+    entity_id: input_boolean.conversation_livingroom
+    state: "on"
+    enabled: true
+action:
+  - data:
+      mp3_url: >-
+        http://YOURE-IP-ADRESS:8123{{ # Here you must enter youre local IP-Adress
+        states('input_text.url_stream_assist') }}
+    action: pyscript.download_and_get_duration_streamassist
+  - wait_for_trigger:
+      - platform: state
+        entity_id:
+          - timer.extract_mp3_time_streamassist
+        to: idle
+    timeout:
+      hours: 0
+      minutes: 1
+      seconds: 0
+      milliseconds: 0
+    continue_on_timeout: false
+  - action: script.streamassistlivingroom
+    data: {}
+mode: restart
