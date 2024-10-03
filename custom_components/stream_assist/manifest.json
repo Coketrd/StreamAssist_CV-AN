@@ -2,7 +2,7 @@
   "domain": "stream_assist_cv-an",
   "name": "Stream Assist_CV-AN",
   "codeowners": [
-    "@AlexxIT"
+    "@AlexxIT",
     "@Coketrd"
   ],
   "config_flow": true,
