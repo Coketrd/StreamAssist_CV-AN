@@ -26,7 +26,7 @@ async def async_setup_entry(
             break
         if event == "tts" and not pipeline.tts_engine:
             continue
-        entities.append(StreamAssistSensor(config_entry, event))
+        entities.append(StreamAssistCVANSensor(config_entry, event))
 
     async_add_entities(entities)
 
