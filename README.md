@@ -11,7 +11,7 @@ How to?<br>
    - You need to create an helper where you can save the duration from the TTS mp3 file. It is copied to the following helper entity **timer.extract_mp3_time_streamassist**. If you want a different name, you have to change the name in the get_mp3_duration_streamassist_.py script.
    - An additional automation (automation_conversation.txt) is then used to start the script **get_mp3_duration_streamassist_.py** and then another script **script.streamassistlivingroom** is used to restart the microphone at STT without a wakeword.<br>
 
-   **However, this only happens if you want it to, an additional helper is created for this purpose, which can be activated by voice, a real switch on the wind, NFC, etc. In my automation example **input_boolean.conversation_livingroom)**
+   **However, this only happens if you want it to, an additional helper is created for this purpose, which can be activated by voice, a real switch on the wind, NFC, etc. In my automation example input_boolean.conversation_livingroom)**
 
 - Changed the music type from **audio** to **music**, so now the STT Start Media File can played on devices with the KIOSK Mode and still can use with the cameras i tested.
 
