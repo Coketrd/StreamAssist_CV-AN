@@ -2,6 +2,7 @@ I have added a few lines in the Core/__init__.py which allow the following:
 - Integrated the possibility to activate an Conversationmode<p>
 How to?<br>
    - Export and save the TTS mp3 URL to open it with the script get_mp3_duration_streamassist_.py and read the file length, which is needed to automatically reactivate the microphone at the end of the TTS.
+   - You need to create an helper where you can save the URL from the TTS mp3 File. It is copied to the following helper entity **input_text.url_stream_assist** If you want a different name, you have to change the name in the script.   
    - An additional automation (automation_conversation.txt) is then used to start the script get_mp3_duration_streamassist_.py and then another script (script.streamassistlivingroom) is used to restart the microphone at STT without a wakeword.<br>
    
    **However, this only happens if you want it to, an additional helper is created for this purpose, which can be activated by voice, a real switch on the wind, NFC, etc. In my automation example(input_boolean.conversation_livingroom)**
