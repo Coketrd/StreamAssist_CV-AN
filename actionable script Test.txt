@@ -1,0 +1,106 @@
+alias: Actionable_Test
+sequence:
+  - action: conversation.process
+    metadata: {}
+    data:
+      text: >-
+        You are a home automation assistant. You've noticed that it's getting chilly in the office. Ask if you should turn on the air conditioning for me and tell me in a humorous way. Keep it short and don't use any special characters or emojis.
+      agent_id: 0a9a1fadafffafaf557216345f9aa
+    response_variable: response_tempbuero
+  - action: tts.cloud_say
+    metadata: {}
+    data:
+      cache: false
+      entity_id: media_player.s23_t_eea
+      language: de-DE
+      options:
+        voice: ChristophNeural
+      message: "\"{{ response_tempbuero.response.speech.plain.speech }}\""
+  - delay:
+      hours: 0
+      minutes: 0
+      seconds: 12
+      milliseconds: 0
+  - action: media_player.play_media
+    target:
+      entity_id: media_player.s23_t_eea
+    data:
+      media_content_id: media-source://media_source/local/beep.mp3
+      media_content_type: music
+    enabled: false
+  - delay:
+      hours: 0
+      minutes: 0
+      seconds: 1
+      milliseconds: 0
+    enabled: false
+  - parallel:
+      - action: stream_assist.run
+        data:
+          player_entity_id: media_player.s23_t_eea
+          pipeline_id: 01hmc4ddaFAFa6gmarnaq6
+          assist:
+            start_stage: stt
+            end_stage: stt
+            pipeline:
+              conversation_language: de
+              conversation_engine: homeassistant
+              language: de
+              name: Home Assistant
+              stt_engine: stt.home_assistant_cloud
+              stt_language: de
+              tts_engine: tts.home_assistant_cloud
+              tts_language: de
+              tts_voice: ChristophNeural
+          stream_source: http://Youre-IP-Adress:8080/audio.wav		# Change youe IP-Adress
+          stt_start_media: media-source://media_source/local/beep.mp3 
+        enabled: true
+    enabled: true
+  - delay:
+      hours: 0
+      minutes: 0
+      seconds: 2
+      milliseconds: 0
+  - action: script.stt_streamassist_answer
+    metadata: {}
+    data: {}
+  - choose:
+      - conditions:
+          - condition: template
+            value_template: >
+              {{ 'ja' in states('input_text.stt_streamassist_answer') | lower
+              }}
+        sequence:
+          - action: tts.cloud_say
+            metadata: {}
+            data:
+              cache: false
+              entity_id: media_player.s23_t_eea
+              message: All right, the climate is activated.
+              language: de-DE
+              options:
+                voice: ChristophNeural
+          - action: climate.turn_on
+            target:
+              device_id:
+                - da7e03ecAFAFAFAFAFd8fea4cb
+            data: {}
+    default:
+      - action: tts.cloud_say
+        metadata: {}
+        data:
+          cache: false
+          entity_id: media_player.s23_t_eea
+          message: Okay, then not.
+          language: de-DE
+          options:
+            voice: ChristophNeural
+  - action: input_text.set_value
+    metadata: {}
+    data:
+      value: " "
+    target:
+      entity_id: input_text.stt_streamassist_answer
+description: ""
+icon: mdi:tablet
+mode: restart
