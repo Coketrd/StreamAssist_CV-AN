@@ -135,7 +135,7 @@ async def assist_run(
             if player_entity_id:
                 tts = event.data["tts_output"]
                 # Set the URL in the input_text entity. This is required for reading the TTS mp3 file.
-                hass.async_add_job(hass.states.set, 'input_text.url_haustuer_stream_assist', tts["url"])
+                hass.async_add_job(hass.states.set, 'input_text.url_stream_assist', tts["url"])
                 play_media(hass, player_entity_id, tts["url"], tts["mime_type"])
                 
 
