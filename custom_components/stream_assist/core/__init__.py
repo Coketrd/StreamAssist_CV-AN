@@ -122,14 +122,22 @@ async def assist_run(
             if event.data
             else {"timestamp": event.timestamp}
         )
-
+        # STT END Added to read STT text
+        if event.type == PipelineEventType.STT_END:
+            stt_text = event.data.get("stt_output", {}).get("text", "")
+            # STT Save result to the entity
+            hass.async_add_job(hass.states.set, 'input_text.stt_streamassist', stt_text)
+        
         if event.type == PipelineEventType.STT_START:
             if player_entity_id and (media_id := data.get("stt_start_media")):
-                play_media(hass, player_entity_id, media_id, "audio")
+                play_media(hass, player_entity_id, media_id, "music") #Changing audio to music, so the sst_start_media can played on Android Deviced with Fully Kiosk
         elif event.type == PipelineEventType.TTS_END:
             if player_entity_id:
                 tts = event.data["tts_output"]
+                # Set the URL in the input_text entity. This is required for reading the TTS mp3 file.
+                hass.async_add_job(hass.states.set, 'input_text.url_haustuer_stream_assist', tts["url"])
                 play_media(hass, player_entity_id, tts["url"], tts["mime_type"])
+                
 
         if event_callback:
             event_callback(event)
