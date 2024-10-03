@@ -1,11 +1,15 @@
 I have added a few lines in the Core/__init__.py which allow the following:
--Integrated the possibility to activate an Conversationmode
-How to?
-Export and save the TTS mp3 URL to open it with the script get_mp3_duration_streamassist_.py and read the file length, which is needed to automatically reactivate the microphone at the end of the TTS. An additional automation (automation_conversation.txt) is then used to start the script get_mp3_duration_streamassist_.py and then another script (script.streamassistlivingroom) is used to restart the microphone at STT without a wakeword.
-However, this only happens if you want it to, an additional helper is created for this purpose, which can be activated by voice, a real switch on the wind, NFC, etc. In my automation example(input_boolean.conversation_livingroom)
+- Integrated the possibility to activate an Conversationmode<p>
+How to?<br>
+   - Export and save the TTS mp3 URL to open it with the script get_mp3_duration_streamassist_.py and read the file length, which is needed to automatically reactivate the microphone at the end of the TTS.
+   - An additional automation (automation_conversation.txt) is then used to start the script get_mp3_duration_streamassist_.py and then another script (script.streamassistlivingroom) is used to restart the microphone at STT without a wakeword.<br>
+   
+   **However, this only happens if you want it to, an additional helper is created for this purpose, which can be activated by voice, a real switch on the wind, NFC, etc. In my automation example(input_boolean.conversation_livingroom)**
 
 
-
+<br>
+<br>
+<br>
 
 The Conversation-Mode and the possibility for Actionable Notifications is working on my System, the Changes are until now not in this fork.
 right now it is the original fork.
